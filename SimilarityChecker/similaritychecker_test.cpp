@@ -30,6 +30,14 @@ TEST_F(SimilarityCheckerFixture, PartialalphaScore) {
 	checkAlphaScore(16, "aadefe", "aer");
 }
 
+TEST_F(SimilarityCheckerFixture, PartialTotalcore1) {
+	checkTotalScore(70, "abcd", "abc");
+}
+
+TEST_F(SimilarityCheckerFixture, PartialTotalcore2) {
+	checkTotalScore(16, "aadefe", "aer");
+}
+
 int main() {
 	InitGoogleMock();
 	return RUN_ALL_TESTS();
