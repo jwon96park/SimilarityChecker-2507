@@ -13,16 +13,26 @@ public:
 		int length2 = input2.length();
 		if (length1 == length2) return 60;
 		
-		int gap = 0;
+		int shortLength, longLength;
 		if (length1 > length2) {
-			if (length1 >= length2 * 2) return 0;
-			gap = length1 - length2;
-			return 60 - ((60 * gap) / length2);
+			shortLength = length2;
+			longLength = length1;
 		}
 		else {
-			if (length1 * 2 <= length2) return 0;
-			gap = length2 - length1;
-			return 60 - ((60 * gap) / length1);
+			shortLength = length1;
+			longLength = length2;
 		}
+
+		if (isLongerMoreThanTwice(longLength, shortLength)) return 0;
+		return calculatePartialLengthScore(longLength, shortLength);
+	}
+	bool isLongerMoreThanTwice(const int length1, const int length2)
+	{
+		return length1 >= length2 * 2;
+	}
+	int calculatePartialLengthScore(const int length1, const int length2)
+	{
+		int gap = length1 - length2;
+		return 60 - ((60 * gap) / length2);
 	}
 };
