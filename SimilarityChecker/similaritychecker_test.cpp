@@ -7,10 +7,10 @@ using namespace testing;
 class SimilarityCheckerFixture : public Test {
 public:
 	SimilarityChecker checker;
-	void checkTotalScore(const int expected, const std::string& input1, const std::string& input2) {
+	void checkTotalScore(const int expected, const string& input1, const string& input2) {
 		EXPECT_EQ(expected, checker.calculateScore(input1, input2));
 	}
-	void checkLengthScore(const int expected, const std::string& input1, const std::string& input2) {
+	void checkLengthScore(const int expected, const string& input1, const string& input2) {
 		EXPECT_EQ(expected, checker.getLengthScore(input1, input2));
 	}
 };

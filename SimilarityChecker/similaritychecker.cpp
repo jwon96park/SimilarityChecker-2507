@@ -1,14 +1,16 @@
 #include <string>
 
+using std::string;
+
 class SimilarityChecker {
 public:
-	int calculateScore(const std::string& input1, const std::string& input2) {
+	int calculateScore(const string& input1, const string& input2) {
 		int score = 0;
 		if (input1 == input2) return 100;
 		return score;
 	}
 
-	int getLengthScore(const std::string& input1, const std::string& input2) {
+	int getLengthScore(const string& input1, const string& input2) {
 		int length1 = input1.length();
 		int length2 = input2.length();
 		if (length1 == length2) return 60;
