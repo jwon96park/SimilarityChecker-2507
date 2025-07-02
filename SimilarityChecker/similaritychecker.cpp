@@ -2,6 +2,7 @@
 #include <set>
 
 using std::string;
+using std::set;
 
 class SimilarityChecker {
 public:
@@ -11,18 +12,18 @@ public:
 	}
 
 	int getAlpha(const string& input1, const string& input2) {
-		std::set<char> inputSet1, inputSet2, totalSet;
+		set<char> inputSet1, inputSet2, totalSet;
 
 		makeSetFromString(input1, input2, inputSet1, inputSet2, totalSet);
 		return 40 * calculateSameCount(inputSet1, inputSet2, totalSet) / totalSet.size();
 	}
 
-	int calculateSameCount(const std::set<char>& inputSet1, const std::set<char>& inputSet2, const std::set<char>& totalSet)
+	int calculateSameCount(const set<char>& inputSet1, const set<char>& inputSet2, const set<char>& totalSet)
 	{
 		return inputSet1.size() + inputSet2.size() - totalSet.size();
 	}
 
-	void makeSetFromString(const std::string& input1, const std::string& input2, std::set<char>& inputSet1, std::set<char>& inputSet2, std::set<char>& totalSet)
+	void makeSetFromString(const std::string& input1, const std::string& input2, set<char>& inputSet1, set<char>& inputSet2, set<char>& totalSet)
 	{
 		for (char ch : input1) {
 			inputSet1.insert(ch);
