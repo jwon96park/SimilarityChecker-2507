@@ -1,4 +1,5 @@
 #include <string>
+#include <set>
 
 using std::string;
 
@@ -8,6 +9,21 @@ public:
 		int score = 0;
 		if (input1 == input2) return 100;
 		return score;
+	}
+
+	int getAlpha(const string& input1, const string& input2) {
+		std::set<char> set1, set2, totalSet;
+
+		for (char ch : input1) {
+			set1.insert(ch);
+			totalSet.insert(ch);
+		}
+		for (char ch : input2) {
+			set2.insert(ch);
+			totalSet.insert(ch);
+		}
+		int sameCount = set1.size() + set2.size() - totalSet.size();
+		return 40 * sameCount / totalSet.size();
 	}
 
 	int getLengthScore(const string& input1, const string& input2) {
