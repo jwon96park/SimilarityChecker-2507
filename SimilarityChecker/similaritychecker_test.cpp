@@ -5,7 +5,10 @@
 using namespace testing;
 
 TEST(TS, TC1) {
-	EXPECT_EQ(1, 1);
+	SimilarityChecker checker;
+	int expected = 100;
+	int score = checker.calculateScore("abcd", "abcd");
+	EXPECT_EQ(expected, score);
 }
 
 int main() {
